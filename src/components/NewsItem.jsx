@@ -1,15 +1,18 @@
 import { Card, Button } from 'react-bootstrap';
 
-const NewsItem = () => {
+const NewsItem = ({ title, description, image, date }) => {
   return (
-    <Card style={{ width: '18rem' }} className="mb-4">
-      <Card.Img variant="top" src="https://via.placeholder.com/286x180" />
+    <Card className="h-100 shadow-sm">
+      <Card.Img variant="top" src={image} style={{ height: '200px', objectFit: 'cover' }} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          {description}
         </Card.Text>
-        <Button variant="primary">Read More</Button>
+        <div className="d-flex justify-content-between align-items-center mt-3">
+          <small className="text-muted">{date}</small>
+          <Button variant="primary" size="sm">Read More</Button>
+        </div>
       </Card.Body>
     </Card>
   );
